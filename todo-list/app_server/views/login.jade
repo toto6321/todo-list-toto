@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.formWrapper
+    form#form(action='/loginHandler',method='post',accept-charset='utf-8')
+      p
+        input(type='email',name='email',placeholder='email')
+      p
+        input(type='text',name='nickname',placeholder='nickname')
+      p
+        input(type='password',name='password',placeholder='password')
+      button(type='reset',name='reset') RESET
+      button(type='submit',name='submit') SUBMIT

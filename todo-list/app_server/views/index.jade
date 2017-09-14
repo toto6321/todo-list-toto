@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h2(style="font-family:microsoft yahei") This is a basic to-do demo
+  br
+  p to view your todo list online, please log in first >>>
+    a(href='/login',style='font-size:150%') log-in
+  br
+  p if you haven't had an account, please sign up first >>>
+    a(href='/signup',style='font-size:150%') sign-up

@@ -1,4 +1,8 @@
-// to get users list
-module.exports.users = function(req, res, next) {
-  res.send('respond with a resource');
-};
+var express = require('express');
+var router = express.Router();
+var controller_users = require('../controllers/users');
+
+/* GET users listing. */
+router.get('/', controller_users.users);
+
+module.exports = router;
