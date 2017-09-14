@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var todoSchema=mongoose.Schema({
+var todoSchema=new mongoose.Schema({
   title:String,
   label:[String],
   content:String,

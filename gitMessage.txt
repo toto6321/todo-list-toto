@@ -1,7 +1,5 @@
-#1 re-organize the app_server/controllers directory.
-#1.1 rewrite routes.js by splitting relatively complex controllers out of it.
-
-
+#1	implement findTodo function in app_server/controllers/readTodoController.js
+#1.1	fix problem in models
 
 
 
