@@ -4,56 +4,45 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', indexController);
+function indexController (req, res, next){
+  res.render('index');
+};
+
+var usersController = require('./usersController');
 router.get('/users',usersController);
-router.get('/todo_list',todo_listController);
 
 router.get('/login',loginController);
-router.post('/loginHandler',loginHandlerController);
-
-router.get('/signup',signupController);
-router.post('/signupHandler',signupHandlerController);
-
-router.get('/addTodo',addTodo);
-var insertTodo = require('./insertTodoController');
-router.post('/insertTodo',insertTodo);
-
-module.exports = router;
-
-// to get home page
-function indexController (req, res, next){
-  res.render('index',{title:"Express"});
-};
-
-// to get todo list
-function todo_listController(req,res,next){
-  res.render('todo_list');
-}
-
-// to get users list
-function usersController(req, res, next) {
-  res.send('respond with a resource');
-};
-
 function loginController(req,res,next){
   res.render('login');
 }
 
+var loginHandlerController = require('./loginHandlerController');
+router.post('/loginHandler',loginHandlerController);
+
+router.get('/signup',signupController);
 function signupController(req,res,next){
   res.render('signup');
 }
 
-function loginHandlerController(req,res,next){
-  // res.render('login');
-  res.send("handle log-in.")
-}
+var signupHandlerController = require('./signupHandlerController');
+router.post('/signupHandler',signupHandlerController);
 
-function signupHandlerController(req,res,next){
-  // res.render('signup');
-  var User = require('../models/userModel');
-  // User.register();
-  res.send("handle sign-up.")
-}
-
+router.get('/addTodo',addTodo);
 function addTodo(req,res,next){
   res.render('addTodo');
 }
+
+// C.R.U.D
+var createTodo = require('./createTodoController');
+router.post('/createTodo',createTodo);
+
+var readTodo = require('./readTodoController');
+router.get('/todo_list',readTodo);
+
+var updateTodo = require('./updateTodoController');
+router.post('/updateTodo',updateTodo);
+
+var deleteTodo = require('./deleteTodoController');
+router.post('/deleteTodo',deleteTodo);
+
+module.exports = router;

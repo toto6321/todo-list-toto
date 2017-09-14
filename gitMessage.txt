@@ -1,4 +1,7 @@
-#1	fix the error of TODO IS NOT FUNCTION in createTodo.js
-#1.1	rename cerateTodo.js in app_server/controllers to insertTodoController.js
-#1.2	add a route of "/addTodo" in routes.js and modify the action in addTodo.jade respectively.
-#1.3  fix indent problem in addTodo.jade
+#1 re-organize the app_server/controllers directory.
+#1.1 rewrite routes.js by splitting relatively complex controllers out of it.
+
+
+
+
+
