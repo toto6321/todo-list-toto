@@ -13,6 +13,9 @@ router.post('/loginHandler',loginHandlerController);
 router.get('/signup',signupController);
 router.post('/signupHandler',signupHandlerController);
 
+var createTodo = require('./createTodo');
+router.post('/createTodo',createTodo);
+
 module.exports = router;
 
 // to get home page

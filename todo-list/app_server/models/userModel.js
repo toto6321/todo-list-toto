@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 var todoSchema = require('./todoModel')
-var userSchema=new mongooose.Schema({
-  email:{tyep:String,required:true},
+var userSchema=mongoose.Schema({
+  email:{type:String,required:true},
   nickname:String,
   password:String,
   todos:[todoSchema]
 });
 
-var userModel = new mongoose.Model('USER',userSchema);
-module.exports = userModels;
+// var userModel = mongoose.Model('USER',userSchema);
+// module.exports = userModel;
+module.exports = userSchema;

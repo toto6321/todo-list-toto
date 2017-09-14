@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./app_server/controllers/routes');
 //var users = require('./app_server/routes/users');
 
+//set up database
+var database = require('./app_server/config/database');
 var app = express();
 
 // view engine setup
@@ -22,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// set up top-level routes
+// set up top-level route
 app.use('/', routes);
 //app.use('/users', users);
 

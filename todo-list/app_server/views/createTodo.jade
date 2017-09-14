@@ -1,0 +1,14 @@
+extends layout
+
+block content
+form(action='/createTodo',method='post',accept-charset='utf-8')
+  p
+    input(type='text',name='title',placeholder='title(option)')
+  p
+    input(type='text',name='labels',placeholder='label(option)')
+  p
+    input(type='text',name='content',placeholder='detail(required)')
+  p
+    button(type='reset',name='reset') CANCEL
+    button(type='submit',name='submit') SAVE
+  

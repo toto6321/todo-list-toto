@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var todoSchema=new mongoose.Schema({
+var todoSchema=mongoose.Schema({
   title:String,
   label:[String],
   content:String,
@@ -7,5 +7,6 @@ var todoSchema=new mongoose.Schema({
   lastModifiedDate:{type:Date,default:Date.now}
 });
 
-var todoModel = new mongoose.Model('TODO',todoSchema);
-module.exports = todoModel;
+// var todoModel = mongoose.Model('TODO',todoSchema);
+// module.exports = todoModel;
+module.exports = todoSchema;

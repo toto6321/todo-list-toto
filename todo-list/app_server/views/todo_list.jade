@@ -3,4 +3,23 @@ extends layout
 block content
 
   table.todo-list
+  tr
+    th title
+    th label
+    th content
+    th lastModifiedDate
+    th createdDate
+    th delete
+    th edit
+
+    for todo in todos
     tr
+      td.title #{todo.title}
+      td.label #{todo.label}
+      td.content #{todo.content}
+      td.lastModifiedDate #{todo.lastModifiedDate}
+      td.createdDate #{todo.createdDate}
+      td.delete
+        a(href='/deleteTodo/#{todo.id}') delete
+      td.edit
+        a(href='/editTodo/#{todo.id}') edit
