@@ -13,8 +13,9 @@ router.post('/loginHandler',loginHandlerController);
 router.get('/signup',signupController);
 router.post('/signupHandler',signupHandlerController);
 
-var createTodo = require('./createTodo');
-router.post('/createTodo',createTodo);
+router.get('/addTodo',addTodo);
+var insertTodo = require('./insertTodoController');
+router.post('/insertTodo',insertTodo);
 
 module.exports = router;
 
@@ -51,4 +52,8 @@ function signupHandlerController(req,res,next){
   var User = require('../models/userModel');
   // User.register();
   res.send("handle sign-up.")
+}
+
+function addTodo(req,res,next){
+  res.render('addTodo');
 }

@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
-var TODO = require('../models/todoModel');
+var todoSchema = require('../models/todoModel');
+var TODO = mongoose.model("TODO",todoSchema);
 
-var createTodo= function(req,res,next){
+var insertTodo= function(req,res,next){
   var todo = new TODO({
     title:req.body.title,
     label:req.body.labels,
@@ -11,7 +12,6 @@ var createTodo= function(req,res,next){
   }).save(function(erro,todo,count){
     res.redirect('/todo_list');
   });
-
 };
 
-module.exports = createTodo;
+module.exports = insertTodo;
