@@ -3,14 +3,19 @@ var todoSchema = require('../models/todoModel');
 var TODO = mongoose.model("TODO",todoSchema);
 
 var insertTodo= function(req,res,next){
-  var todo = new TODO({
+  TODO.create(new TODO({
     title:req.body.title,
     label:req.body.labels,
     content:req.body.content,
-    lastmodifiedDate:Date.now,
+    lastModifiedDate:Date.now,
     createdDate:Date.now
-  }).save(function(erro,todo,count){
-    res.redirect('/todo_list');
+  }),function(error, todo){
+    if(error){
+      res.status(404).send(error);
+    }else{
+      // res.status(200).send(todo);;
+      res.redirect('/todo_list');
+    }
   });
 };
 

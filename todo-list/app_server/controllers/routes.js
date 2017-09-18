@@ -14,7 +14,7 @@ router.get('/users',usersController);
 router.get('/login',loginController);
 function loginController(req,res,next){
   res.render('login');
-}
+};
 
 var loginHandlerController = require('./loginHandlerController');
 router.post('/loginHandler',loginHandlerController);
@@ -22,7 +22,7 @@ router.post('/loginHandler',loginHandlerController);
 router.get('/signup',signupController);
 function signupController(req,res,next){
   res.render('signup');
-}
+};
 
 var signupHandlerController = require('./signupHandlerController');
 router.post('/signupHandler',signupHandlerController);
@@ -37,12 +37,12 @@ var createTodo = require('./createTodoController');
 router.post('/createTodo',createTodo);
 
 var readTodo = require('./readTodoController');
-router.get('/todo_list',readTodo);
+router.get('/todo_list',readTodo.findAllTodo);
 
 var updateTodo = require('./updateTodoController');
-router.post('/updateTodo',updateTodo);
+router.put('/editTodo',updateTodo);
 
 var deleteTodo = require('./deleteTodoController');
-router.post('/deleteTodo',deleteTodo);
+router.delete('/deleteTodo',deleteTodo.deleteOneTodo);
 
 module.exports = router;
